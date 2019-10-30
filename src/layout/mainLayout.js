@@ -7,7 +7,7 @@ import { Responsive, Segment, Menu, Sidebar } from "semantic-ui-react";
 import { RouteWithSubRoutes } from "routes.config";
 
 import Navbar from "./navBar";
-
+import Footer from "./footer";
 class MainLayout extends Component {
   constructor(props) {
     super(props);
@@ -56,6 +56,7 @@ class MainLayout extends Component {
             ))}
           </Switch>
         )} */}
+        <Footer isMobileSize={isMobileSize} />
       </React.Fragment>
     );
   }

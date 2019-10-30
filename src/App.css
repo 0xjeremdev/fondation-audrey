@@ -29,6 +29,7 @@ body {
 }
 
 @media (max-width: 1000px) {
+  .ui.container,
   .ui.menu > .ui.container {
     width: 80% !important;
   }
