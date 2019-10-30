@@ -35,7 +35,7 @@ const FadeSlider = styled(Fade)`
     position: absolute;
     top: 395px;
     width: 100%;
-    z-index: 10000;
+    z-index: 1;
     margin-left: auto;
     margin-right: auto;
   }
