@@ -21,7 +21,7 @@ class MainLayout extends Component {
     const isSSR = typeof window === "undefined";
     const width = isSSR ? Responsive.onlyTablet.minWidth : window.innerWidth;
     // const minWidth = Responsive.onlyTablet.minWidth;
-    const minWidth = 890;
+    const minWidth = 1000;
     if (width < minWidth) this.setState({ isMobileSize: true });
     else this.setState({ isMobileSize: false });
   };

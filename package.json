@@ -22,6 +22,9 @@
     "url": "git+https://gitlab.com/teamhey/hey-ctrl-tower.git"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-svg-core": "^1.2.25",
+    "@fortawesome/free-solid-svg-icons": "^5.11.2",
+    "@fortawesome/react-fontawesome": "^0.1.7",
     "express": "^4.17.1",
     "express-static-gzip": "^2.0.5",
     "history": "^4.10.1",
