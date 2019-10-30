@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import PropTypes from "prop-types";
 import styled from "styled-components";
 import { Segment, Container } from "semantic-ui-react";
@@ -11,7 +11,6 @@ const FooterContainer = styled(Segment)`
     box-shadow: unset;
     background-color: #26221a;
     padding: 80px 0;
-    margin-top: 200px;
   }
 `;
 const FootBar = styled(Segment)`
@@ -91,42 +90,42 @@ const Footer = ({ isMobileSize }) => {
         >
           <Subset isMobileSize={isMobileSize}>
             <h5>Audrey Jacobs Foundation</h5>
-            <Link>
+            <Link to="">
               <span>{">"}</span>
               Home
             </Link>
-            <Link>
+            <Link to="">
               <span>{">"}</span>
               Foundation
             </Link>
-            <Link>
+            <Link to="">
               <span>{">"}</span>
               Projects
             </Link>
-            <Link>
+            <Link to="">
               <span>{">"}</span>
               Events
             </Link>
-            <Link>
+            <Link to="">
               <span>{">"}</span>
               News
             </Link>
-            <Link>
+            <Link to="">
               <span>{">"}</span>
               Contact
             </Link>
           </Subset>
           <Subset isMobileSize={isMobileSize}>
             <h5>How to help us</h5>
-            <Link>
+            <Link to="">
               <span>{">"}</span>
               Donate
             </Link>
-            <Link>
+            <Link to="">
               <span>{">"}</span>
               Other ways to help
             </Link>
-            <Link>
+            <Link to="">
               <span>{">"}</span>
               Where does your money go?
             </Link>

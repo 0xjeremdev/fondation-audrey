@@ -3,12 +3,6 @@ import { BrowserRouter, Switch } from "react-router-dom";
 
 import { routes, RouteWithSubRoutes } from "./routes.config";
 
-let DevTools;
-if (process.env.NODE_ENV === "development") {
-  // eslint-disable-next-line global-require
-  DevTools = require("./_helpers/DevTools").default;
-}
-
 class App extends Component {
   constructor(props) {
     super(props);
@@ -22,12 +16,8 @@ class App extends Component {
   }
 
   render() {
-    const { isMounted } = this.state;
     return (
       <React.Fragment>
-        {isMounted &&
-          !window.devToolsExtension &&
-          process.env.NODE_ENV === "development" && <DevTools />}
         <BrowserRouter>
           {routes && (
             <Switch>

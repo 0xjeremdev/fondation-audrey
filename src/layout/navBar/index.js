@@ -3,7 +3,6 @@ import PropTypes from "prop-types";
 import { Menu, Container, Sidebar, Dropdown } from "semantic-ui-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
-import {} from "components";
 
 import {
   NavItem,

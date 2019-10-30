@@ -11,7 +11,12 @@ export const routes = [
     Component: MainLayout,
     routes: [
       {
-        path: "home",
+        path: "/",
+        exact: true,
+        Component: HomePage
+      },
+      {
+        path: "/home",
         exact: true,
         Component: HomePage
       },

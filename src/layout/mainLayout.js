@@ -2,7 +2,7 @@ import React, { Component } from "react";
 import PropTypes from "prop-types";
 import { Switch } from "react-router-dom";
 
-import { Responsive, Segment, Menu, Sidebar } from "semantic-ui-react";
+import { Responsive } from "semantic-ui-react";
 
 import { RouteWithSubRoutes } from "routes.config";
 
@@ -49,13 +49,15 @@ class MainLayout extends Component {
           visibleNavbar={visibleNavbar}
           handleNavbarVisible={this.handleNavbarVisible}
         />
-        {/* {routes && (
-          <Switch>
-            {routes.map((route, i) => (
-              <RouteWithSubRoutes key={i} {...route} />
-            ))}
-          </Switch>
-        )} */}
+        <div style={{ marginTop: isMobileSize ? "80px" : "64px" }}>
+          {routes && (
+            <Switch>
+              {routes.map((route, i) => (
+                <RouteWithSubRoutes key={i} {...route} />
+              ))}
+            </Switch>
+          )}
+        </div>
         <Footer isMobileSize={isMobileSize} />
       </React.Fragment>
     );
