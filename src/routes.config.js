@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import { Route, Redirect } from "react-router-dom";
 
 import { MainLayout } from "layout";
-import { HomePage } from "pages";
+import { HomePage, FoundationPage } from "pages";
 
 export const routes = [
   {
@@ -19,6 +19,11 @@ export const routes = [
         path: "/home",
         exact: true,
         Component: HomePage
+      },
+      {
+        path: "/foundation",
+        exact: true,
+        Component: FoundationPage
       },
       {
         RedirectTo: "/"

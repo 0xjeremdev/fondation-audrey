@@ -42,13 +42,10 @@ const FadeSlider = styled(Fade)`
 `;
 const SlideItem = styled.div`
   & {
-    /* background-image: ${props => props.imgUrl}; */
+    background: url(${props => props.img});
+    background-size: cover;
+    background-position: center;
     height: 395px;
-    text-align: center;
-  }
-  & img {
-    margin: 0 -50%;
-    /* height: 100%; */
   }
 `;
 
@@ -102,9 +99,7 @@ class HomePage extends Component {
       <React.Fragment>
         <FadeSlider {...properties}>
           {images.map((item, i) => (
-            <SlideItem key={i}>
-              <img src={item} />
-            </SlideItem>
+            <SlideItem key={i} img={item} />
           ))}
         </FadeSlider>
         <YellowContainer>
