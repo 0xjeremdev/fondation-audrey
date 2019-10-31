@@ -3,12 +3,16 @@ body {
   font-family: "PT Sans", Helvetica, Arial, Lucida, sans-serif;
   color: #666;
 }
-/* 
 @font-face {
-  font-family: "ETmodules";
+  font-family: ETmodules;
+  src: url(assets/fonts/modules.eot);
+  src: url(assets/fonts/modules.eot?#iefix) format("embedded-opentype"),
+    url(assets/fonts/modules.ttf) format("truetype"),
+    url(assets/fonts/modules.woff) format("woff"),
+    url(assets/fonts/modules.svg#ETmodules) format("svg");
+  font-weight: 400;
   font-style: normal;
-  src: url("assets/fonts/de-wb-font.ttf");
-} */
+}
 
 .ui.container,
 .ui.menu > .ui.container {
