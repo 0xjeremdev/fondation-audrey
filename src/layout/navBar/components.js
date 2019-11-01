@@ -71,10 +71,10 @@ export const NavLogo = () => <LogoComponent src={LogoImage} />;
 
 export const NavBar = styled(Menu)`
   &.ui.menu {
-    box-shadow: unset !important;
     border-bottom: none;
     background-color: ${Color.Header};
     height: ${props => (props.mobile ? "80px" : "64px")};
+    box-shadow: 0 1px 0 rgba(0, 0, 0, 0.1);
   }
 `;
 

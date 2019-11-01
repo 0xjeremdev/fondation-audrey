@@ -22,7 +22,7 @@ const Header = styled.div`
 const ProjectSection = styled.div`
   & {
     padding: 4% 0;
-    background-color: #fef1df;
+    background-color: #fdefd5 !important;
   }
   & .container {
     padding: 2% 0;
