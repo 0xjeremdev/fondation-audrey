@@ -8,7 +8,8 @@ import {
   FoundationPage,
   ProjectPage,
   EventPage,
-  NewsPage
+  NewsPage,
+  ContactPage
 } from "pages";
 
 export const routes = [
@@ -45,6 +46,11 @@ export const routes = [
         path: "/news",
         exact: true,
         Component: NewsPage
+      },
+      {
+        path: "/contact",
+        exact: true,
+        Component: ContactPage
       },
       {
         RedirectTo: "/"
