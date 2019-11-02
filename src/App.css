@@ -38,7 +38,12 @@ body {
     width: 80% !important;
   }
 }
-
+.container {
+  max-width: 1080px !important;
+  margin-left: auto !important;
+  margin-right: auto !important;
+  width: 80% !important;
+}
 h1,
 h2,
 h3,
