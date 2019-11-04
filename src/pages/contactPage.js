@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { Container } from "semantic-ui-react";
+import {} from "semantic-ui-react";
 
 import HeaderImage from "assets/images/contact/header.jpg";
 
@@ -28,6 +28,17 @@ const ContactSection = styled.div`
   & .form-container h1 {
     font-size: 26px;
     padding-bottom: 16px;
+    margin: 0px;
+  }
+  & .contact-message p {
+    margin: 0;
+    padding-bottom: 1em;
+  }
+  & .contact-message ul {
+    padding: 0 0 23px 1em;
+    margin: 0;
+    line-height: 26px;
+    list-style-type: disc;
   }
   & .form-container input,
   & .form-container textarea {
@@ -156,7 +167,13 @@ class ContactPage extends Component {
     super(props);
     this.state = {
       valueA: 0,
-      valueB: 0
+      valueB: 0,
+      nameValid: 2, // 0: no fill, 1: invalid, 2: valid
+      emailValid: 2, //
+      messageValid: 2, //
+      captchaValid: 2, //
+      emptyField: false,
+      errorField: false
     };
   }
   componentDidMount() {
@@ -164,9 +181,60 @@ class ContactPage extends Component {
   }
   onSubmit = e => {
     e.preventDefault();
+    const { valueA, valueB } = this.state;
+    var name = this.inputName.value,
+      email = this.inputEmail.value,
+      message = this.inputMessage.value,
+      captcha = this.inputCaptcha.value;
+
+    this.setState({ emptyField: false });
+    this.setState({ errorField: false });
+    if (name === "") {
+      this.setState({ nameValid: 0 });
+      this.setState({ emptyField: true });
+    } else {
+      this.setState({ nameValid: 2 });
+    }
+    if (email === "") {
+      this.setState({ emailValid: 0 });
+      this.setState({ emptyField: true });
+    } else if (
+      !email.match(
+        /^[a-zA-Z0-9.!#$%&’*+/=?^_`{|}~-]+@[a-zA-Z0-9-]+(?:\.[a-zA-Z0-9-]+)*$/
+      )
+    ) {
+      this.setState({ emailValid: 1 });
+      this.setState({ errorField: true });
+    } else {
+      this.setState({ emailValid: 2 });
+    }
+    if (message === "") {
+      this.setState({ messageValid: 0 });
+      this.setState({ emptyField: true });
+    } else {
+      this.setState({ messageValid: 2 });
+    }
+    if (captcha === "") {
+      this.setState({ captchaValid: 0 });
+      this.setState({ emptyField: true });
+    } else if (valueA + valueB != parseInt(captcha)) {
+      this.setState({ captchaValid: 1 });
+      this.setState({ errorField: true });
+    } else {
+      this.setState({ captchaValid: 2 });
+    }
   };
   render() {
-    const { valueA, valueB } = this.state;
+    const {
+      valueA,
+      valueB,
+      nameValid,
+      emailValid,
+      messageValid,
+      captchaValid,
+      emptyField,
+      errorField
+    } = this.state;
     return (
       <React.Fragment>
         <Header />
@@ -174,13 +242,43 @@ class ContactPage extends Component {
           <div className="container">
             <div className="form-container">
               <h1>Send us a message</h1>
-              <div className="contact-message" />
+              <div className="contact-message">
+                <p style={{ display: emptyField ? "block" : "none" }}>
+                  Please fill in the following fields:
+                </p>
+                <ul style={{ display: emptyField ? "block" : "none" }}>
+                  <li style={{ display: nameValid == 0 ? "block" : "none" }}>
+                    Name
+                  </li>
+                  <li style={{ display: emailValid == 0 ? "block" : "none" }}>
+                    Email Address
+                  </li>
+                  <li style={{ display: messageValid == 0 ? "block" : "none" }}>
+                    Message
+                  </li>
+                  <li style={{ display: captchaValid == 0 ? "block" : "none" }}>
+                    Captcha
+                  </li>
+                </ul>
+                <p style={{ display: errorField ? "block" : "none" }}>
+                  Please fix the following erros:
+                </p>
+                <ul style={{ display: errorField ? "block" : "none" }}>
+                  <li style={{ display: emailValid == 1 ? "block" : "none" }}>
+                    Invalid email
+                  </li>
+                  <li style={{ display: captchaValid == 1 ? "block" : "none" }}>
+                    You entered the wrong number in captcha.
+                  </li>
+                </ul>
+              </div>
               <form>
                 <div className="input-div">
                   <input
                     type="text"
                     name="name"
                     placeholder="Name"
+                    className={nameValid == 2 ? "" : "border-red"}
                     ref={input => (this.inputName = input)}
                   />
                 </div>
@@ -189,12 +287,14 @@ class ContactPage extends Component {
                     type="text"
                     name="email"
                     placeholder="Email Address"
+                    className={emailValid == 2 ? "" : "border-red"}
                     ref={input => (this.inputEmail = input)}
                   />
                 </div>
                 <div className="message-div">
                   <textarea
                     placeholder="Message"
+                    className={messageValid == 2 ? "" : "border-red"}
                     ref={input => (this.inputMessage = input)}
                   />
                 </div>
@@ -207,6 +307,7 @@ class ContactPage extends Component {
                     <input
                       type="text"
                       name="captcha"
+                      className={captchaValid == 2 ? "" : "border-red"}
                       ref={input => (this.inputCaptcha = input)}
                     />
                   </p>
