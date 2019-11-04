@@ -54,7 +54,7 @@ export const routes = [
         Component: ContactPage
       },
       {
-        path: "/help",
+        path: "/donation",
         exact: true,
         Component: HelpPage
       },

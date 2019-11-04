@@ -90,7 +90,7 @@ class Navbar extends Component {
             <Link to="contact">Contact</Link>
           </NavItem>
           <NavItem>
-            <Link to="help">Help us</Link>
+            <Link to="donation">Help us</Link>
           </NavItem>
           <NavItem style={{ paddingRight: "5px" }}>FR</NavItem>
           <NavDivider>|</NavDivider>
@@ -144,7 +144,7 @@ class Navbar extends Component {
         <Link to="contact" onClick={() => handleNavbarVisible(false)}>
           <NavItem>Contact</NavItem>
         </Link>
-        <Link to="help" onClick={() => handleNavbarVisible(false)}>
+        <Link to="donation" onClick={() => handleNavbarVisible(false)}>
           <NavItem>Help us</NavItem>
         </Link>
         <NavItem>FR</NavItem>

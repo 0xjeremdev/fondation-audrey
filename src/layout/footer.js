@@ -58,6 +58,9 @@ const Subset = styled.div`
     margin: 0px;
     display: block;
   }
+  & a {
+    font-weight: bold;
+  }
   &.contact-subset {
     margin-bottom: 0px;
   }
@@ -90,42 +93,42 @@ const Footer = ({ isMobileSize }) => {
         >
           <Subset isMobileSize={isMobileSize}>
             <h5>Audrey Jacobs Foundation</h5>
-            <Link to="">
+            <Link to="home">
               <span>{">"}</span>
               Home
             </Link>
-            <Link to="">
+            <Link to="foundation">
               <span>{">"}</span>
               Foundation
             </Link>
-            <Link to="">
+            <Link to="projects">
               <span>{">"}</span>
               Projects
             </Link>
-            <Link to="">
+            <Link to="events">
               <span>{">"}</span>
               Events
             </Link>
-            <Link to="">
+            <Link to="news">
               <span>{">"}</span>
               News
             </Link>
-            <Link to="">
+            <Link to="contact">
               <span>{">"}</span>
               Contact
             </Link>
           </Subset>
           <Subset isMobileSize={isMobileSize}>
             <h5>How to help us</h5>
-            <Link to="">
+            <Link to="donation">
               <span>{">"}</span>
               Donate
             </Link>
-            <Link to="">
+            <Link to="donation">
               <span>{">"}</span>
               Other ways to help
             </Link>
-            <Link to="">
+            <Link to="donation">
               <span>{">"}</span>
               Where does your money go?
             </Link>
