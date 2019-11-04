@@ -13,6 +13,9 @@ export const NavItem = styled(Menu.Item)`
     font-weight: 600;
     font-family: "PT Sans", Helvetica, Arial, Lucida, sans-serif;
   }
+  .ui.menu &.item a {
+    color: unset;
+  }
   .ui.menu &.item:hover {
     color: ${Color.MenuHoverColor};
     cursor: pointer;
@@ -21,18 +24,26 @@ export const NavItem = styled(Menu.Item)`
   }
   .ui.sidebar &.item {
     font-size: 14px;
-    color: ${Color.MenuColor};
+    color: ${Color.MenuColor} !important;
     font-weight: 600;
     font-family: "PT Sans", Helvetica, Arial, Lucida, sans-serif;
     width: 100%;
     border-bottom: 1px solid rgba(0, 0, 0, 0.03);
     padding: 10px 5%;
   }
+  .ui.sidebar &.item a {
+    color: ${Color.MenuColor};
+  }
   .ui.sidebar &.item:hover {
     color: ${Color.MenuHoverColor};
     cursor: pointer;
     transition: 1s;
     background-color: rgba(0, 0, 0, 0.03);
+  }
+  .ui.sidebar &.item:hover a {
+    color: ${Color.MenuHoverColor};
+    cursor: pointer;
+    transition: 1s;
   }
   .ui.menu.vertical &.item {
     display: flex;

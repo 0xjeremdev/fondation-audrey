@@ -3,6 +3,7 @@ import PropTypes from "prop-types";
 import { Menu, Container, Sidebar, Dropdown } from "semantic-ui-react";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faChevronDown } from "@fortawesome/free-solid-svg-icons";
+import { Link } from "react-router-dom";
 
 import {
   NavItem,
@@ -37,33 +38,60 @@ class Navbar extends Component {
           </NavItem>
         </Menu.Menu>
         <Menu.Menu position="right">
-          <NavItem>Home</NavItem>
-          <NavItem>Foundation</NavItem>
+          <NavItem>
+            <Link to="home">Home</Link>
+          </NavItem>
+          <NavItem>
+            <Link to="foundation">Foundation</Link>
+          </NavItem>
           <NavItem
             onMouseOver={this.MouseOverItem}
             onMouseOut={this.MouseOutItem}
           >
-            Projects
+            <Link to="projects">Projects</Link>
+
             <FontAwesomeIcon
               icon={faChevronDown}
               style={{ fontSize: "12px", marginLeft: "5px", marginTop: "2px" }}
             />
             <DropDownMenu open={visibleDropdown}>
               <Dropdown.Menu>
-                <Dropdown.Item>Our projects on the map</Dropdown.Item>
-                <Dropdown.Item>Aarya Tara Pre-School</Dropdown.Item>
-                <Dropdown.Item>Surya Vinayak School</Dropdown.Item>
-                <Dropdown.Item>Cerebral Palsy Nepal</Dropdown.Item>
-                <Dropdown.Item>Sama Nepal</Dropdown.Item>
-                <Dropdown.Item>Specific actions</Dropdown.Item>
-                <Dropdown.Item>Chez Caroline</Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to="">Our projects on the map</Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to="">Aarya Tara Pre-School</Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to="">Surya Vinayak School</Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to="">Cerebral Palsy Nepal</Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to="">Sama Nepal</Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to="">Specific actions</Link>
+                </Dropdown.Item>
+                <Dropdown.Item>
+                  <Link to="">Chez Caroline</Link>
+                </Dropdown.Item>
               </Dropdown.Menu>
             </DropDownMenu>
           </NavItem>
-          <NavItem>Events</NavItem>
-          <NavItem>News</NavItem>
-          <NavItem>Contact</NavItem>
-          <NavItem>Help us</NavItem>
+          <NavItem>
+            <Link to="events">Events</Link>
+          </NavItem>
+          <NavItem>
+            <Link to="news">News</Link>
+          </NavItem>
+          <NavItem>
+            <Link to="contact">Contact</Link>
+          </NavItem>
+          <NavItem>
+            <Link to="help">Help us</Link>
+          </NavItem>
           <NavItem style={{ paddingRight: "5px" }}>FR</NavItem>
           <NavDivider>|</NavDivider>
           <NavItem style={{ paddingLeft: "5px" }}>EN</NavItem>
@@ -72,24 +100,53 @@ class Navbar extends Component {
     );
   };
   DopdownNavMenu = () => {
+    const { handleNavbarVisible } = this.props;
     return (
       <React.Fragment>
-        <NavItem>Home</NavItem>
-        <NavItem>Foundation</NavItem>
-        <NavItem>Projects</NavItem>
+        <Link to="home" onClick={() => handleNavbarVisible(false)}>
+          <NavItem>Home</NavItem>
+        </Link>
+        <Link to="foundation" onClick={() => handleNavbarVisible(false)}>
+          <NavItem>Foundation</NavItem>
+        </Link>
+        <Link to="projects" onClick={() => handleNavbarVisible(false)}>
+          <NavItem>Projects</NavItem>
+        </Link>
         <div style={{ paddingLeft: "5%" }}>
-          <NavItem>Our projects on the map</NavItem>
-          <NavItem>Aarya Tara Pre-School</NavItem>
-          <NavItem>Surya Vinayak School</NavItem>
-          <NavItem>Cerebral Palsy Nepal</NavItem>
-          <NavItem>Sama Nepal</NavItem>
-          <NavItem>Specific actions</NavItem>
-          <NavItem>Chez Caroline</NavItem>
+          <Link to="" onClick={() => handleNavbarVisible(false)}>
+            <NavItem>Our projects on the map</NavItem>
+          </Link>
+          <Link to="" onClick={() => handleNavbarVisible(false)}>
+            <NavItem>Aarya Tara Pre-School</NavItem>
+          </Link>
+          <Link to="" onClick={() => handleNavbarVisible(false)}>
+            <NavItem>Surya Vinayak School</NavItem>
+          </Link>
+          <Link to="" onClick={() => handleNavbarVisible(false)}>
+            <NavItem>Cerebral Palsy Nepal</NavItem>
+          </Link>
+          <Link to="" onClick={() => handleNavbarVisible(false)}>
+            <NavItem>Sama Nepal</NavItem>
+          </Link>
+          <Link to="" onClick={() => handleNavbarVisible(false)}>
+            <NavItem>Specific actions</NavItem>
+          </Link>
+          <Link to="" onClick={() => handleNavbarVisible(false)}>
+            <NavItem>Chez Caroline</NavItem>
+          </Link>
         </div>
-        <NavItem>Events</NavItem>
-        <NavItem>News</NavItem>
-        <NavItem>Contact</NavItem>
-        <NavItem>Help us</NavItem>
+        <Link to="events" onClick={() => handleNavbarVisible(false)}>
+          <NavItem>Events</NavItem>
+        </Link>
+        <Link to="news" onClick={() => handleNavbarVisible(false)}>
+          <NavItem>News</NavItem>
+        </Link>
+        <Link to="contact" onClick={() => handleNavbarVisible(false)}>
+          <NavItem>Contact</NavItem>
+        </Link>
+        <Link to="help" onClick={() => handleNavbarVisible(false)}>
+          <NavItem>Help us</NavItem>
+        </Link>
         <NavItem>FR</NavItem>
         <NavItem>EN</NavItem>
       </React.Fragment>

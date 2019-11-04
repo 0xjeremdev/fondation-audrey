@@ -9,7 +9,8 @@ import {
   ProjectPage,
   EventPage,
   NewsPage,
-  ContactPage
+  ContactPage,
+  HelpPage
 } from "pages";
 
 export const routes = [
@@ -51,6 +52,11 @@ export const routes = [
         path: "/contact",
         exact: true,
         Component: ContactPage
+      },
+      {
+        path: "/help",
+        exact: true,
+        Component: HelpPage
       },
       {
         RedirectTo: "/"
