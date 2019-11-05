@@ -1,8 +1,37 @@
 import React, { Component } from "react";
 import styled from "styled-components";
-import { Container } from "semantic-ui-react";
-
+import { Segment, Container } from "components";
 import HeaderImage from "assets/images/help/header.jpg";
+
+const card_data = [
+  {
+    image: require("assets/images/help/1.jpg"),
+    header: "Donate",
+    text: [
+      "Donations are always welcome. We are part of the Transnational Giving Europe (TGE) network, which allows tax deductible cross border donations in most european countries.",
+      "If you want to support a specific project please mention it in your donation or contact us directly"
+    ],
+    link: "Donate now"
+  },
+  {
+    image: require("assets/images/help/2.jpg"),
+    header: "Other ways to help",
+    text: [
+      "Talk about us, come to our sales, share our events on Facebook, organize your own events, think of us on special occasions, volunteer …"
+    ],
+    link: "Read more…"
+  },
+  {
+    image: require("assets/images/help/3.jpg"),
+    header: "Where does your money go",
+    text: [
+      "Your donations are used entirely to run our projects in Nepal.",
+      "Being a small structure allows us to be flexible and to have minimal administrative costs in Europe which are totally covered by our family.",
+      "All travel costs are beared personnally."
+    ],
+    link: "Read more…"
+  }
+];
 
 const Header = styled.div`
   & {
@@ -13,198 +42,50 @@ const Header = styled.div`
     width: 100%;
   }
 `;
-const FirstSection = styled.div`
-  & {
-    background-color: #fce1bc;
-    padding: 0 6%;
-  }
-  & .container {
-    padding: 50px 0;
-    display: flex;
-    align-items: center;
-  }
-  & img {
-    width: 100%;
-    padding-right: 20px;
-    max-height: 346.4px;
-  }
-  & h2 {
-    margin: 0px;
-    font-size: 28px;
-    font-weight: 300;
-    padding-bottom: 10px;
-    color: #333;
-    font-family: "PT Serif", Georgia, "Times New Roman", serif;
-  }
-  & p {
-    margin: 0px;
-    font-size: 18px;
-    font-weight: 400;
-    padding-bottom: 10px;
-    color: #333;
-    line-height: 1.7em;
-    font-family: "PT Sans", Helvetica, Arial, Lucida, sans-serif;
-  }
-  @media (max-width: 981px) {
-    & p {
-      font-size: 13px;
-    }
-  }
-  & .column {
-    width: 45%;
-    padding-left: 20px;
-  }
-  & .button {
-    color: #c01700;
-    margin-top: 20px;
-    text-shadow: none;
-    text-decoration: none;
-    position: relative;
-    padding: 10px 20px;
-    border: 2px solid;
-    font-size: 20px;
-    font-weight: 500;
-    line-height: 1.7em !important;
-    transition: all 0.2s;
-    border-radius: 3px;
-    display: block;
-    width: fit-content;
-  }
-  & .button:after {
-    content: "5";
-    font-family: ETmodules !important;
-    font-size: 32px;
-    margin-left: -1em;
-    opacity: 0;
-    transition: all 0.2s;
-    position: absolute;
-  }
-  & .button:hover:after {
-    margin-left: -0.2em;
-    opacity: 1;
-  }
-  & .button:hover {
-    background-color: rgba(0, 0, 0, 0.05);
-    border: 2px solid transparent;
-    padding: 10px 30px 10px 10px;
-    cursor: pointer;
-  }
 
-  @media (max-width: 768px) {
-    & p,
-    & .button,
-    & img {
-      display: none;
-    }
-    & h2 {
-      font-size: 20px;
-      text-align: center;
-    }
-    & .column {
-      width: 100%;
-      padding-left: 0px;
-    }
-    & .container {
-      display: block;
-    }
+const ContentContainer = styled(Container)`
+  & h3 {
+    padding-top: 20px;
+    padding-bottom: 30px;
   }
-`;
-
-const CardSection = styled.div`
-  & {
-    padding: 4% 0;
-    background-color: #fef1df;
+  & .text-center {
+    text-align: center;
   }
-  & .container {
-    padding: 2% 0;
-    width: 89%;
-    margin-left: auto;
-    margin-right: auto;
+  &.card-container {
     display: flex;
-  }
-  & .column {
-    width: 29.667%;
-    margin-right: 5.5%;
-  }
-  & .column:nth-child(3) {
-    margin-right: 0px;
-  }
-  @media (max-width: 981px) {
-    & .column {
-      width: 100%;
-      max-width: 500px;
-      margin-left: auto;
-      margin-right: auto;
-    }
-    & .container {
-      display: block;
-    }
+    text-align: center;
   }
   & .card {
-    margin-bottom: 18.539%;
-    border: 1px solid #d8d8d8;
-    background-color: #fff;
-    word-wrap: break-word;
-    box-shadow: 0px 1px 5px 0px rgba(0, 0, 0, 0.1);
-    position: relative;
+    width: 29.667%;
+    margin-right: 5.5%;
+    max-width: 550px;
+    text-align: center;
+  }
+  & .card:last-child {
+    margin-right: 0px;
   }
   & .card img {
+    height: 240px;
     width: 100%;
-    height: 180px;
     object-fit: cover;
-  }
-  & .card:hover {
-    cursor: pointer;
-  }
-  & .card:hover span {
-    z-index: 3;
-  }
-  & .card span {
-    background-color: rgba(255, 255, 255, 0.7);
-    position: absolute;
-    width: 100%;
-    height: 180px;
-    border: 1px solid #e5e5e5;
-    transition: all 0.3s;
-    color: #b72411 !important;
-    top: 0;
-    left: 0;
-    z-index: -1;
-  }
-  & .card span:hover:before {
-    top: 50%;
-  }
-  & .card span:before {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    margin: -16px 0 0 -16px;
-    font-size: 32px;
-    content: "";
-    font-family: ETmodules !important;
-    transition: all 0.4s;
-  }
-  & .card .content {
-    padding: 19px;
-  }
-  & .card h2 {
-    margin: 0px;
-    min-height: 80px;
-    line-height: 1.5em;
-    font-size: 20px;
-    font-family: "PT Serif", Georgia, "Times New Roman", serif;
-    padding-bottom: 10px;
-    color: #333;
-    font-weight: 500;
+    margin-bottom: 30px;
   }
   & .card p {
-    color: #666;
-    margin-bottom: 6px;
-    font-size: 14px;
+    line-height: 1.7em;
   }
-  & .card .read-more {
-    color: #c01700;
-    font-weight: 500;
+  @media (max-width: 980px) {
+    & .card,
+    & .card:last-child {
+      width: 100%;
+      margin: 0 auto;
+      margin-bottom: 30px;
+    }
+    & .card:last-child {
+      margin-bottom: 0px;
+    }
+    &.card-container {
+      display: block;
+    }
   }
 `;
 
@@ -213,6 +94,77 @@ class HelpPage extends Component {
     return (
       <React.Fragment>
         <Header />
+        <Segment className="light-back">
+          <ContentContainer className="inner-container">
+            <h3 className="text-center">
+              <em>
+                « What you keep is lost forever, what you give is yours for good
+                »
+              </em>
+            </h3>
+          </ContentContainer>
+          <ContentContainer className="inner-container card-container">
+            {card_data.map((card, i) => (
+              <div className="card" key={i}>
+                <img src={card.image} />
+                <h4>{card.header}</h4>
+                <p>
+                  {card.text.map((text, j) => (
+                    <React.Fragment key={j}>
+                      {text}
+                      <br />
+                    </React.Fragment>
+                  ))}
+                </p>
+                <a>{card.link}</a>
+              </div>
+            ))}
+          </ContentContainer>
+        </Segment>
+        <Segment className="dark-back">
+          <Container></Container>
+        </Segment>
+        <Segment className="light-back">
+          <ContentContainer className="inner-container">
+            <h1>Help differently</h1>
+            <p>&nbsp;</p>
+            <h3>Talk about us</h3>
+            <p>
+              Talk about our projects to help us find new people who would like
+              to support us.
+            </p>
+            <h3>Sales & Events</h3>
+            <p>
+              Come to our sales and events to support us. Invite your friends
+              and family to participate. Share our events on social networks.
+            </p>
+            <h3>Organize your own events</h3>
+            <p>
+              Organize your own private sale, a sports event, a concert etc.
+            </p>
+            <p>Think of us for a birthday, special anniversary, wedding etc.</p>
+            <h3>Volunteer</h3>
+            <p>
+              {"Contact us at "}
+              <a>info@fondationaudreyjacobs.org</a>
+            </p>
+          </ContentContainer>
+        </Segment>
+        <Segment className="dark-back">
+          <ContentContainer className="inner-container">
+            <h1>Where does your money go ?</h1>
+            <p />
+            <p>
+              Your donations are used entirely to run our projects in Nepal.
+            </p>
+            <p>
+              Being a small structure allows us to be flexible and to have
+              minimal administrative costs in Europe which are totally covered
+              by our family.
+            </p>
+            <p>All travel costs are beared personnally.</p>
+          </ContentContainer>
+        </Segment>
       </React.Fragment>
     );
   }
